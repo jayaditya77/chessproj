@@ -45,7 +45,7 @@ io.on("connection", (uniquesocket) => {
                 io.emit("move", move);
                 io.emit("boardState", chess.fen());
 
-                if (chess.game_over()) {
+                if (chess.isGameOver()) {
                     io.emit("gameOver", {
                         result: chess.in_checkmate() ? (chess.turn() === 'w' ? 'Black wins' : 'White wins') :
                                 chess.in_stalemate() ? 'Stalemate' :
